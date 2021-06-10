@@ -6,7 +6,9 @@ SELECT
     TO_DATE(start_time) AS DATE,
     COUNT (
         DISTINCT query_id
-    ) AS query_count
+    ) AS query_count,
+    warehouse_name,
+    warehouse_size
 FROM
     {{ source(
         'snowflake',
