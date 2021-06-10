@@ -1,5 +1,6 @@
 {{ config(
-    materialized = 'incremental'
+    materialized = 'incremental',
+    unique_key = 'query_id'
 ) }}
 
 SELECT
@@ -26,7 +27,7 @@ FROM
     ) }}
 WHERE
     query_load_percent = 100
-    AND query_type = 'CREATE_TABLE_AS_SELECT'
+    AND query_type = 'SELECT'
     {# COMMENT THE DATE FILTER OUT TO EMULATE --FULL-REFRESH  #}
     AND TO_DATE(start_time) = DATEADD(DAY, -1, CURRENT_DATE())
     AND queued_overload_time = 0
