@@ -19,4 +19,6 @@ WHERE
     AND TO_DATE(start_time) BETWEEN DATE_TRUNC(months, ADD_MONTHS(CURRENT_DATE(), -12))
     AND getdate()
 GROUP BY
-    DATE
+    DATE,
+    warehouse_name,
+    warehouse_size
