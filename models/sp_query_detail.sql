@@ -3,7 +3,7 @@
     unique_key = 'query_id'
 ) }}
 
-SELECT top 10
+SELECT
     TO_DATE(start_time) AS DATE,
     warehouse_name,
     warehouse_size,
